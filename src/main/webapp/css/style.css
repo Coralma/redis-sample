@@ -7,6 +7,10 @@ body {
     position: fixed;*/
 }
 
+input{
+    width:70px;
+}
+
 .page, body {
     background-color: #f8f8f8;
 }

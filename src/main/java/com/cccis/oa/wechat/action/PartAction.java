@@ -33,7 +33,7 @@ public class PartAction {
         long s = System.currentTimeMillis();
         service.takeTimeFive();
         long t = System.currentTimeMillis() - s;
-        return "Decrypt total TEST, take time " + t + "(ms)";
+        return "Decrypt total take time " + t + "(ms)";
     }
 
 }

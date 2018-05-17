@@ -9,11 +9,16 @@ import java.io.IOException;
 
 public class KryoSerializeUtil {
 
-    private static Kryo kryo = new Kryo();
+    private static final ThreadLocal<Kryo> kryos = new ThreadLocal<Kryo>() {
+        protected Kryo initialValue() {
+            return new Kryo();
+        };
+    };
 
     public static byte[] serialize(Object object) {
         ByteArrayOutputStream out = null;
         Output output = null;
+        Kryo kryo = kryos.get();
         try {
             out = new ByteArrayOutputStream();
             output = new Output(out, 1024);
@@ -39,6 +44,7 @@ public class KryoSerializeUtil {
 
     public static Object unserialize(byte[] bytes) {
         Input input = null;
+        Kryo kryo = kryos.get();
         try {
             input = new Input(bytes, 0, 1024);
             return kryo.readClassAndObject(input);

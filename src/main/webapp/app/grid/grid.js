@@ -49,7 +49,22 @@ angular.module('grid.controller', [])
                 "lastName": $scope.randomStr(5),
                 "company": $scope.randomStr(3),
                 "income": 20000,
-                "employed": true});
+                "employed": true,
+                "type": $scope.randomStr(5),
+                "sex": $scope.randomStr(5),
+                "age": $scope.randomStr(5),
+                "size": $scope.randomStr(5),
+                "weight": $scope.randomStr(5),
+                "rule": $scope.randomStr(5),
+                "skin": $scope.randomStr(5),
+                "habit": $scope.randomStr(5),
+                "custom": $scope.randomStr(5),
+                "alike": $scope.randomStr(5),
+                "funk": $scope.randomStr(5),
+                "classic": $scope.randomStr(5),
+                "blus": $scope.randomStr(5),
+                "jazz": $scope.randomStr(5)
+            });
            // console.log($scope.randomData);
         }
 
@@ -63,12 +78,26 @@ angular.module('grid.controller', [])
                 $scope.gridApi = gridApi;
             },
             columnDefs : [
-                {displayName: 'id', field:'id',enableSorting: true},
-                {displayName: 'FirstName', field:'firstName'},
-                {displayName: 'LastName', field:'lastName',cellStyle: "width:200px",cellClass: 'center-data'},
-                {displayName: 'Company', field:'company',cellStyle: "width:200px"},
-                {displayName: 'Income', field:'income',cellStyle: "width:200px", filter: 'decimalFilter', cellClass: 'right-number'},
-                {displayName: 'Employed', field:'employed',cellStyle: "width:150px", cellTemplate:'<input type="checkbox" ng-model="item[col.field]">'}
+                {displayName: 'id', field:'id',cellStyle: "width:50px", enableSorting: true},
+                {displayName: 'FirstName', field:'firstName',cellTemplate:'<input type="text" ng-model="item[col.field]">'},
+                {displayName: 'LastName', field:'lastName',cellClass: 'center-data'},
+                {displayName: 'Company', field:'company',cellTemplate:'<input type="text" ng-model="item[col.field]">'},
+                {displayName: 'Income', field:'income', filter: 'decimalFilter', cellClass: 'right-number'},
+                {displayName: 'Employed', field:'employed',cellTemplate:'<input type="checkbox" ng-model="item[col.field]">'},
+                {displayName: 'Type', field:'type',cellTemplate:'<input type="text" ng-model="item[col.field]">'},
+                {displayName: 'Sex', field:'sex',cellTemplate:'<input type="text" ng-model="item[col.field]">'},
+                {displayName: 'Age', field:'age',cellTemplate:'<input type="text" ng-model="item[col.field]">'},
+                {displayName: 'Size', field:'size'},
+                {displayName: 'Weight', field:'weight'},
+                {displayName: 'Rule', field:'rule'},
+                {displayName: 'Skin', field:'skin'},
+                {displayName: 'Habit', field:'habit'},
+                {displayName: 'Custom', field:'custom'},
+                {displayName: 'Alike', field:'alike'},
+                {displayName: 'Funk', field:'funk'},
+                {displayName: 'Classic', field:'classic'},
+                {displayName: 'Blues', field:'blues'},
+                {displayName: 'Jazz', field:'jazz'}
             ],
             data: $scope.randomData
             /*data : [
